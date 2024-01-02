@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PROJECT_PATH: "src/AleEbrahimGroup"
+      PROJECT_PATH: "/Employees"
       OUTPUT_PATH: "Output"
       BUILD_CONFIGURATION: "Release"
 
@@ -23,10 +23,10 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 7.0.x
     
     - name: Publish (Angor)
-      run: dotnet publish ${{env.PROJECT_PATH}} -f net8.0 --configuration ${{env.BUILD_CONFIGURATION}} --output ${{env.OUTPUT_PATH}}
+      run: dotnet publish ${{env.PROJECT_PATH}} -f net7.0 --configuration ${{env.BUILD_CONFIGURATION}} --output ${{env.OUTPUT_PATH}}
    
     - name: Copy index.html to 404.html
       run: cp ${{env.OUTPUT_PATH}}/wwwroot/index.html ${{env.OUTPUT_PATH}}/wwwroot/404.html
